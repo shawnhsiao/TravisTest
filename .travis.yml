@@ -21,8 +21,10 @@ env:
 before_install:
     - export JAVA_HOME=/usr/lib/jvm/java-8-oracle
     - export ANDROID_HOME=/usr/local/android-sdk
-    - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+    - export ANDROID_NDK_HOME=`pwd`/android/sdk/android-ndk-r9b
+    - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${ANDROID_NDK_HOME}
     - echo "sdk.dir=$ANDROID_HOME" > local.properties
+    - echo "ndk.dir=$ANDROID_NDK_HOME" >> local.properties
 before_script:
     - wget http://services.gradle.org/distributions/gradle-2.10-bin.zip
     - unzip gradle-2.10-bin.zip
