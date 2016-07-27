@@ -6,8 +6,11 @@ android:
   components:
     - platform-tools
     - tools
+    - extra
     - build-tools-23.0.2
+    - build-tools-22.0.1
     - android-23
+    - extra-google-google_play_services
     - extra-google-m2repository
     - extra-android-m2repository
     - extra-android-support
@@ -26,10 +29,6 @@ before_script:
     - export GRADLE_HOME=$PWD/gradle-2.10
     - export PATH=$GRADLE_HOME/bin:$PATH
 script:
-  - cd android
-  - android update project --path TalesOfSocial
-  - android update project --path sdk/TermsOfServiceLibs/
-  - android update project --path sdk/google-play-services_lib/
   - gradle $SCHEME
 notifications:
 after_script:
