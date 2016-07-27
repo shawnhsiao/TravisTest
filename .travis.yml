@@ -31,13 +31,8 @@ script:
   - android update project --path sdk/google-play-services_lib/
   - gradle $SCHEME
 notifications:
-
 after_script:
 after_success:
-
 branches:
   only:
     - master
-    - develop
-    - feature/japan_version_2.4.1
-    - feature/travis
