@@ -1,0 +1,6 @@
+# Android Studio
+*.iml
+local.properties
+.idea/
+*.hmap
+*.xcuserstate

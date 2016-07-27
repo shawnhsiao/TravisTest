@@ -11,14 +11,15 @@ android:
     - extra-google-m2repository
     - extra-android-m2repository
     - extra-android-support
-  licenses:
-    - 'android-sdk-license-.+'
-    - 'google-gdk-license-.+'
+
 env:
   global:
     - SCHEME=assembleDebug
 before_install:
     - export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+    - export ANDROID_HOME=/usr/local/android-sdk
+    - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+    - echo "sdk.dir=$ANDROID_HOME" > local.properties
 before_script:
     - wget http://services.gradle.org/distributions/gradle-2.10-bin.zip
     - unzip gradle-2.10-bin.zip
