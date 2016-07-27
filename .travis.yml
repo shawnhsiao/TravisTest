@@ -1,0 +1,43 @@
+language: android
+sudo: false
+jdk:
+  - oraclejdk8
+android:
+  components:
+    - platform-tools
+    - tools
+    - build-tools-23.0.2
+    - android-23
+    - extra-google-m2repository
+    - extra-android-m2repository
+    - extra-android-support
+  licenses:
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
+env:
+  global:
+    - SCHEME=assembleDebug
+before_install:
+    - export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+before_script:
+    - wget http://services.gradle.org/distributions/gradle-2.10-bin.zip
+    - unzip gradle-2.10-bin.zip
+    - export GRADLE_HOME=$PWD/gradle-2.10
+    - export PATH=$GRADLE_HOME/bin:$PATH
+script:
+  - cd android
+  - android update project --path TalesOfSocial
+  - android update project --path sdk/TermsOfServiceLibs/
+  - android update project --path sdk/google-play-services_lib/
+  - gradle $SCHEME
+notifications:
+
+after_script:
+after_success:
+
+branches:
+  only:
+    - master
+    - develop
+    - feature/japan_version_2.4.1
+    - feature/travis
